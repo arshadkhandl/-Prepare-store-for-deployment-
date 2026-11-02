@@ -1,0 +1,10 @@
+{
+  "name": "gadgetgully-dropship-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dropshipping store for electronics: storefront, admin panel and database. No npm dependencies.",
+  "main": "server.js",
+  "scripts": { "start": "node --no-warnings server.js" },
+  "engines": { "node": ">=22.5.0" },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#12163b">
+<title>GadgetGully</title>
+<meta name="description" content="Smart gadgets and accessories delivered across India. Pay on delivery or by UPI.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9 2h21v28H9L1 16z' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<a class="sr-only" href="#app">Skip to content</a>
+<div class="announce" id="announce"></div>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="#/" id="logo"><span class="logo-mark" aria-hidden="true"></span><span id="logo-text">GadgetGully</span></a>
+    <form class="search" role="search" id="search-form">
+      <label class="sr-only" for="q">Search gadgets</label>
+      <input id="q" name="q" type="search" placeholder="Search earbuds, smartwatch, charger" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    <nav class="nav" aria-label="Main">
+      <a href="#/shop">Shop</a>
+      <a href="#/track" class="nav-track">Track order</a>
+      <a href="#/cart" class="cart-link" aria-label="Cart">Cart <span class="badge" id="cart-badge" data-n="0">0</span></a>
+    </nav>
+  </div>
+</header>
+<main id="app" tabindex="-1"><div class="wrap loading">Loading store...</div></main>
+<footer class="footer" id="footer"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div id="wa"></div>
+<script src="/assets/app.js"></script>
+</body>
+</html>
