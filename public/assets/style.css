@@ -256,3 +256,942 @@ body.has-sticky .wa-fab { bottom: 4.6rem; }
 .skeleton { background: linear-gradient(90deg, #e6e9f5, #f3f5fb, #e6e9f5); background-size: 200% 100%; animation: sk 1.2s linear infinite; border-radius: 14px; }
 @keyframes sk { to { background-position: -200% 0; } }
 @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+
+
+/* ---------- GadgetGully modern responsive improvements ---------- */
+
+/* Prevent unwanted horizontal scrolling */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.wrap,
+.header-row,
+.card,
+.card-body,
+.pdp,
+.cart-grid,
+.checkout-grid {
+  min-width: 0;
+}
+
+/* Better mobile header */
+@media (max-width: 759px) {
+  .header-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0.75rem 0;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .nav {
+    gap: 0.7rem;
+    margin-left: auto;
+    font-size: 0.88rem;
+  }
+
+  .search {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .search input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .search button {
+    padding-inline: 0.85rem;
+  }
+
+  .nav-track {
+    display: none;
+  }
+}
+
+/* Modern product cards */
+.card {
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(18, 22, 59, 0.09);
+}
+
+.card-body {
+  padding: 0.75rem;
+}
+
+.card-name {
+  font-size: 0.94rem;
+}
+
+.card-foot {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.card-foot .btn {
+  width: 100%;
+  min-height: 42px;
+}
+
+/* Product details buttons */
+.buy-row {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.buy-row .qty {
+  min-width: 0;
+}
+
+.buy-row .btn {
+  width: 100%;
+  min-width: 0;
+  padding: 0.7rem 0.55rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 420px) {
+  .buy-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .buy-row .qty {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .buy-row .btn {
+    min-height: 46px;
+  }
+
+  .wrap {
+    width: min(100% - 1.25rem, var(--wrap));
+  }
+
+  .grid {
+    gap: 0.65rem;
+  }
+
+  .card-body {
+    padding: 0.6rem;
+  }
+
+  .card-foot {
+    padding: 0 0.6rem 0.6rem;
+  }
+
+  .card-foot .btn {
+    padding: 0.65rem 0.3rem;
+    font-size: 0.82rem;
+  }
+
+  .card-name {
+    font-size: 0.88rem;
+  }
+
+  .card-price {
+    gap: 0.35rem;
+  }
+
+  .tag {
+    padding-right: 0.55rem;
+    font-size: 0.9rem;
+  }
+
+  .wa-fab {
+    right: 0.65rem;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+/* Small-screen checkout and cart */
+@media (max-width: 480px) {
+  .panel,
+  .summary {
+    padding: 0.85rem;
+  }
+
+  .line-item {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.7rem;
+  }
+
+  .line-meta {
+    justify-content: flex-start;
+  }
+
+  .steps li {
+    font-size: 0.72rem;
+  }
+
+  .order-no {
+    font-size: 1.1rem;
+  }
+
+  .copy-row {
+    gap: 0.4rem;
+  }
+}
+
+/* Mobile sticky purchase bar */
+.sticky-bar {
+  padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+}
+
+body.has-sticky {
+  padding-bottom: 4.5rem;
+}
+
+@media (min-width: 860px) {
+  body.has-sticky {
+    padding-bottom: 0;
+  }
+}
+
+/* Accessibility */
+button,
+.btn,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+
+
+/* GadgetGully mobile responsive improvements */
+
+@media (max-width: 600px) {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .wrap {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .header-row {
+    gap: 10px;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .nav {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+
+  .search {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .search input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .search button {
+    flex-shrink: 0;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .card-body {
+    padding: 10px;
+    min-width: 0;
+  }
+
+  .card-name {
+    overflow-wrap: anywhere;
+  }
+
+  .card-foot {
+    padding: 8px;
+  }
+
+  .card-foot .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .buy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .buy-row .qty {
+    flex-shrink: 0;
+  }
+
+  .buy-row .btn {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+
+  .pdp {
+    gap: 20px;
+  }
+
+  .gallery,
+  .gallery .main {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .line-item {
+    min-width: 0;
+  }
+
+  .line-meta {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cart-grid,
+  .checkout-grid {
+    min-width: 0;
+  }
+
+  .summary,
+  .panel {
+    min-width: 0;
+  }
+
+  .sticky-bar {
+    gap: 10px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  .sticky-bar .btn {
+    min-width: 0;
+    flex: 1;
+  }
+
+  body.has-sticky .wa-fab {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .wrap {
+    width: calc(100% - 14px);
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .card-body {
+    padding: 8px;
+  }
+
+  .nav {
+    gap: 7px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+}
+
+.card {
+  position: relative;
+  border-radius: 18px;
+  background: var(--card, #fff);
+  border: 1px solid rgba(128, 128, 128, 0.14);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+}
+
+.card .thumb {
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.card .thumb img {
+  width: 100%;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .thumb img {
+  transform: scale(1.045);
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.card-foot {
+  padding: 0 16px 16px;
+}
+
+.card-foot .btn {
+  border-radius: 10px;
+  min-height: 42px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.card-foot .btn:hover {
+  transform: translateY(-1px);
+}
+
+.card .price {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.card .old-price {
+  opacity: 0.55;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.card .badge,
+.card .tag {
+  border-radius: 30px;
+}
+
+.grid {
+  align-items: stretch;
+}
+
+
+.product-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 16px 0;
+}
+
+.product-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.sale-badge {
+  background: #fff0f0;
+  color: #c62828;
+}
+
+.featured-badge {
+  background: #edf2ff;
+  color: #344bd1;
+}
+
+.discount-text {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16834a;
+  margin-top: 5px;
+}
+
+.product-badges:empty {
+  display: none;
+}
+
+
+
+/* GadgetGully homepage premium hero */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero h1 {
+  max-width: 700px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  font-weight: 800;
+}
+
+.hero .lead {
+  max-width: 600px;
+  font-size: 17px;
+  line-height: 1.75;
+  opacity: 0.8;
+  margin-top: 18px;
+}
+
+.hero-search {
+  display: flex;
+  gap: 10px;
+  max-width: 520px;
+  margin-top: 26px;
+}
+
+.hero-search input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 12px;
+}
+
+.hero-search button {
+  border-radius: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+  font-weight: 700;
+}
+
+.hero-tags {
+  display: grid;
+  gap: 14px;
+}
+
+.hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  background: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-tag:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.hero-tag .big-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: rgba(128, 128, 128, 0.08);
+  font-size: 30px;
+}
+
+.hero-tag .nm {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.hero-tag .tag {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.section-head a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-head a:hover {
+  text-decoration: underline;
+}
+
+.shelf a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shelf a:hover {
+  transform: translateY(-3px);
+}
+
+.promo-section {
+  padding: 20px 0 35px;
+}
+
+.promo-banner {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  min-height: 320px;
+  border-radius: 26px;
+  padding: 45px;
+  background: linear-gradient(120deg, #111827, #273449);
+  color: #ffffff;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 2;
+}
+
+.promo-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.promo-content h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin-top: 16px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.promo-content p {
+  max-width: 450px;
+  line-height: 1.7;
+  opacity: 0.75;
+  margin-top: 14px;
+}
+
+.promo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 13px 22px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.promo-btn:hover {
+  transform: translateY(-3px);
+}
+
+.promo-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 230px;
+}
+
+.promo-circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #64748b, #334155);
+  opacity: 0.8;
+}
+
+.promo-emoji {
+  position: relative;
+  font-size: 130px;
+  transform: rotate(-12deg);
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.3));
+  animation: gadget-float 3s ease-in-out infinite;
+}
+
+@keyframes gadget-float {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50% { transform: translateY(-12px) rotate(-8deg); }
+}
+
+/* Premium GadgetGully category tiles */
+
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.shelf a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 150px;
+  padding: 22px 16px;
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  border-radius: 20px;
+  background: var(--card, #fff);
+  text-decoration: none;
+  font-weight: 650;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.shelf a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-color: rgba(100, 120, 255, 0.35);
+}
+
+.shelf a .ic {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(128, 128, 128, 0.08);
+  font-size: 34px;
+  transition: transform 0.25s ease;
+}
+
+.shelf a:hover .ic {
+  transform: scale(1.08);
+}
+
+.shelf a {
+  color: inherit;
+}
+
+/* GadgetGully premium header */
+
+.site-header {
+  backdrop-filter: blur(14px);
+  background: var(--card);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+}
+
+.header-row {
+  gap: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-size: 1.55rem;
+  font-weight: 850;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.search {
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.search input {
+  border: 1px solid var(--line);
+  border-right: none;
+  background: var(--card);
+  color: var(--ink);
+  padding: 13px 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.search button {
+  border: none;
+  padding: 0 22px;
+  transition: opacity 0.2s ease;
+}
+
+.search button:hover {
+  opacity: 0.85;
+}
+
+.nav {
+  gap: 22px;
+}
+
+.nav a {
+  position: relative;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.nav a:not(.cart-link)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.25s ease;
+}
+
+.nav a:not(.cart-link):hover::after {
+  width: 100%;
+}
+
+.cart-link {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cart-link:hover {
+  background: rgba(128, 128, 128, 0.08);
+  transform: translateY(-1px);
+}
+
+.cart-link .badge {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.announce {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 9px 12px;
+}
+.site-header {
+  border-bottom: 1px solid #dfe3eb;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.header-row {
+  min-height: 78px;
+}
+
+.logo {
+  font-size: 1.7rem;
+  color: #111827;
+}
+
+.logo-mark {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.search input {
+  background: #f8fafc;
+  border-color: #dbe2ea;
+}
+
+.search button {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.search button:hover {
+  background: #1d4ed8;
+}
+
+.nav a {
+  font-weight: 700;
+}
+
+.nav .cart-link {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.nav .cart-link:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.nav .cart-link .badge {
+  background: #f59e0b;
+  color: #111827;
+}

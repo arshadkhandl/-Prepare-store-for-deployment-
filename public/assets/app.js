@@ -65,17 +65,33 @@ function thumb(p, withRibbon = true) {
 
 function card(p) {
   const note = !p.in_stock ? '' : (p.low_stock ? `<span class="lowstock">Only ${p.low_stock} left</span>` : '');
+  const off = offPct(p);
+
+  const badges = `
+    <div class="product-badges">
+      ${off > 0 ? `<span class="product-badge sale-badge">-${off}% OFF</span>` : ''}
+      ${p.featured ? `<span class="product-badge featured-badge">Featured</span>` : ''}
+    </div>
+  `;
+
   return `<article class="card">
     <a class="card-link" href="#/product/${esc(p.slug)}">
-      ${thumb(p)}
+      ${thumb(p, false)}
+      ${badges}
       <div class="card-body">
         <span class="card-cat">${esc(p.category)}</span>
         <span class="card-name">${esc(p.name)}</span>
-        <div class="card-price"><span class="tag">${inr(p.price)}</span>${p.mrp > p.price ? `<span class="mrp">${inr(p.mrp)}</span>` : ''}</div>
+        <div class="card-price">
+          <span class="tag">${inr(p.price)}</span>
+          ${p.mrp > p.price ? `<span class="mrp">${inr(p.mrp)}</span>` : ''}
+        </div>
+        ${off > 0 ? `<span class="discount-text">Save ${inr(p.mrp - p.price)}</span>` : ''}
         ${note}
       </div>
     </a>
-    <div class="card-foot">${p.in_stock ? `<button class="btn btn-block btn-sm" data-add="${p.id}" type="button">Add to cart</button>` : '<span class="soldout">Out of stock</span>'}</div>
+    <div class="card-foot">
+      ${p.in_stock ? `<button class="btn btn-block btn-sm" data-add="${p.id}" type="button">Add to cart</button>` : '<span class="soldout">Out of stock</span>'}
+    </div>
   </article>`;
 }
 
@@ -101,7 +117,7 @@ function sumRows(t) {
 }
 
 /* ---------- pages ---------- */
-async function home() {
+async function home () {
   const [feat, latest] = await Promise.all([api('/api/products?featured=1'), api('/api/products?sort=new')]);
   const S = store.settings;
   const pays = [S.cod_enabled && 'cash on delivery', S.upi_enabled && 'UPI', S.online_enabled && 'card or net banking'].filter(Boolean);
@@ -121,6 +137,25 @@ async function home() {
   ].filter(Boolean).join('');
   setTitle('');
   return `
+${feat.length ? `<section class="section"><div class="wrap">
+    <div class="section-head"><h2>Popular right now</h2><a href="#/shop">See all gadgets</a></div>
+    <div class="grid">${feat.slice(0, 8).map(card).join('')}</div></div></section>` : ''}
+
+    <section class="promo-section">
+  <div class="promo-banner">
+    <div class="promo-content">
+      <span class="promo-label">GADGETGULLY PICKS</span>
+      <h2>Upgrade your everyday.</h2>
+      <p>Discover gadgets that make everyday life smarter, simpler and better.</p>
+      <a href="#/shop" class="promo-btn">Explore Collection</a>
+    </div>
+    <div class="promo-visual" aria-hidden="true">
+      <div class="promo-circle"></div>
+      <div class="promo-emoji">🎧</div>
+    </div>
+  </div>
+</section>
+
   <section class="hero"><div class="wrap hero-grid">
     <div>
       <h1>Smart gadgets without the showroom markup</h1>
